@@ -47,7 +47,8 @@ warn() {
 die () {
   local st="$?"
   warn "$@"
-  exit "$st"}
+  exit "$st"
+}
 
 ############
 ### Create install log file
@@ -57,7 +58,7 @@ exec 2>&1
 
 ############
 ### Check for network connection
- ###########
+###########
 echo -e "\nChecking for Internet connection..."
 ping -c 3 github.com &> /dev/null
 if [ $? -ne 0 ]; then
