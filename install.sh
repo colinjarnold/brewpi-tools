@@ -47,8 +47,7 @@ warn() {
 die () {
   local st="$?"
   warn "$@"
-  exit "$st"
-}
+  exit "$st"}
 
 ############
 ### Create install log file
@@ -92,7 +91,7 @@ if [ $(($nowTime - $lastUpdate)) -gt 604800 ] ; then
     echo "last apt-get update was over a week ago. Running apt-get update before updating dependencies"
     sudo apt-get update||die
 fi
-sudo apt-get install -y apache2 libapache2-mod-php5 php5-cli php5-common php5-cgi php5 git-core build-essential python-dev python-pip pastebinit || die
+sudo apt-get install -y apache2 libapache2-mod-php php-cli php-common php-cgi php git-core build-essential python-dev python-pip pastebinit || die
 echo -e "\n***** Installing/updating required python packages via pip... *****\n"
 sudo pip install pyserial psutil simplejson configobj gitpython --upgrade
 echo -e "\n***** Done processing BrewPi dependencies *****\n"
